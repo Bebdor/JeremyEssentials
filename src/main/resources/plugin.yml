@@ -1,0 +1,19 @@
+name: JeremyEssentials
+version: '${project.version}'
+main: de.devlucas.jeremyessentials.JeremyEssentials
+api-version: '1.20'
+commands:
+  gm:
+    aliases: [gamemode]
+  cookie:
+  cmdspy:
+    aliases: [commandspy]
+  help:
+  heal:
+  msg:
+  support:
+  godmode:
+  cc:
+    aliases: [chatclear]
+  globalmute:
+    aliases: [gb]
