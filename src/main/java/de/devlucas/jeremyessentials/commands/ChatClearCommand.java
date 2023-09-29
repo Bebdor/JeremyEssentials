@@ -10,6 +10,17 @@ import org.bukkit.entity.Player;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * The ChatClearCommand class is a command that clears the chat.
+ * <p>
+ * This class extends the PermissionCheckingCommand class and is associated with the "/cc" command.
+ * It requires the "jeremyessentials.chatclear" permission to be executed and can only be run from the console.
+ * <p>
+ * The implementation of the executeCommand method clears the chat by sending empty messages to all players for 100 times.
+ * After clearing the chat, a message is broadcasted indicating that the chat has been cleared by the command executor.
+ * <p>
+ * The suggestTabCompletion method returns an empty list, as there are no tab completions provided for this command.
+ */
 @main(
         command = "/cc",
         permission = "jeremyessentials.chatclear",

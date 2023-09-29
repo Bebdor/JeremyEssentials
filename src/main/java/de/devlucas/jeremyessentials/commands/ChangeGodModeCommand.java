@@ -13,6 +13,22 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
+/**
+ * The ChangeGodModeCommand class is responsible for toggling god mode for a player.
+ * <p>
+ * This command allows players to toggle their own god mode or the god mode of another player.
+ * <p>
+ * Usage: /god [<player>]
+ * - If no player is specified, the command will toggle the god mode of the player who executed the command.
+ * - If a player is specified, the command will toggle the god mode of the specified player.
+ * <p>
+ * Permissions:
+ * - jeremyessentials.god - Allows access to the /god command.
+ * <p>
+ * Example usage:
+ * /god - toggles god mode for the player who executed the command.
+ * /god <player> - toggles god mode for the specified player.
+ */
 @main(
         command = "/god",
         permission = "jeremyessentials.god",

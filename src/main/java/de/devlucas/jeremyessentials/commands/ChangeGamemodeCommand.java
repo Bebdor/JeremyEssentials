@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ *  A command class for changing the player's gamemode.
+ */
 @main(command = "gamemode", permission = "essentials.gamemode", description = "Changes the gamemode", isConsoleCommand = false)
 public class ChangeGamemodeCommand extends PermissionCheckingCommand {
     @Override

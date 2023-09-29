@@ -42,7 +42,7 @@ public class CommandSpyCommand extends PermissionCheckingCommand implements List
                 return true;
             }
         }
-        else if (args.length == 3 && args[0].equalsIgnoreCase("settings")) { // args.length checks for 3 instead of 2
+        else if (args.length == 3 && args[0].equalsIgnoreCase("settings")) {
             String name = player.getName();
             if (!cmdSpyMap.containsKey(name)) {
                 player.sendMessage(ChatColor.RED + "You can't change your settings until cmdspy is deactivated");
@@ -50,12 +50,12 @@ public class CommandSpyCommand extends PermissionCheckingCommand implements List
             }
             String action = args[1].toLowerCase();
             if (action.equals("remove")) {
-                cmdSpyMap.get(name).add(args[2]); // use args[2] instead of args[1]
+                cmdSpyMap.get(name).add(args[2]);
                 player.sendMessage(ChatColor.GREEN + "'" + args[2] + "' was removed from your list.");
                 return true;
             }
             else if (action.equals("add")) {
-                cmdSpyMap.get(name).remove(args[2]); // use args[2] instead of args[1]
+                cmdSpyMap.get(name).remove(args[2]);
                 player.sendMessage(ChatColor.GREEN + "'" + args[2] + "' was added to your list.");
                 return true;
             }
