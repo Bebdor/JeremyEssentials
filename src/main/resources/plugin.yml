@@ -18,3 +18,5 @@ commands:
   globalmute:
     aliases: [gb]
   fly:
+  tp:
+    aliases: [teleport]

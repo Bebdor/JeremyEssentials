@@ -54,7 +54,7 @@ public final class JeremyEssentials extends JavaPlugin {
 
         Objects.requireNonNull(getCommand("heal")).setExecutor(new HealCommand());
 
-        Objects.requireNonNull(getCommand("msg")).setExecutor(new MsgCommand());
+        Objects.requireNonNull(getCommand("msg")).setExecutor(new MessageCommand());
 
         Objects.requireNonNull(getCommand("support")).setExecutor(new SupportCommand());
 
@@ -65,6 +65,8 @@ public final class JeremyEssentials extends JavaPlugin {
         Objects.requireNonNull(getCommand("globalmute")).setExecutor(new GlobalMuteCommand());
 
         Objects.requireNonNull(getCommand("fly")).setExecutor(new FlyCommand());
+
+        Objects.requireNonNull(getCommand("tp")).setExecutor(new TeleportCommand());
     }
 
     @Override

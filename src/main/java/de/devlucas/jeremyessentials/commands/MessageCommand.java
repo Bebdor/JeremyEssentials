@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @main(command = "msg", permission="essentials.msg", description = "A command that allows you to chat privately with other players.", isConsoleCommand = false)
-public class MsgCommand extends JeremyExecuter {
+public class MessageCommand extends JeremyExecuter {
 
     @Override
     public boolean executeCommand(Player player, Command command, String[] args) {
