@@ -1,6 +1,6 @@
 package de.devlucas.jeremyessentials.commands;
 
-import de.devlucas.jeremyessentials.utils.PermissionCheckingCommand;
+import de.devlucas.jeremyessentials.utils.JeremyExecuter;
 import de.devlucas.jeremyessentials.utils.main;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -27,7 +27,7 @@ import java.util.List;
         description = "This command clears the chat",
         isConsoleCommand = true
 )
-public class ChatClearCommand extends PermissionCheckingCommand {
+public class ChatClearCommand extends JeremyExecuter {
 
     @Override
     public boolean executeCommand(Player player, Command command, String[] args) {

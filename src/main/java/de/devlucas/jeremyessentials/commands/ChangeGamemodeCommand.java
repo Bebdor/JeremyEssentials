@@ -1,7 +1,7 @@
 package de.devlucas.jeremyessentials.commands;
 
 import de.devlucas.jeremyessentials.JeremyEssentials;
-import de.devlucas.jeremyessentials.utils.PermissionCheckingCommand;
+import de.devlucas.jeremyessentials.utils.JeremyExecuter;
 import de.devlucas.jeremyessentials.utils.main;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -18,7 +18,7 @@ import java.util.List;
  *  A command class for changing the player's gamemode.
  */
 @main(command = "gamemode", permission = "essentials.gamemode", description = "Changes the gamemode", isConsoleCommand = false)
-public class ChangeGamemodeCommand extends PermissionCheckingCommand {
+public class ChangeGamemodeCommand extends JeremyExecuter {
     @Override
     public boolean executeCommand(@NotNull Player player, @NotNull Command command, @NotNull String[] args) {
 

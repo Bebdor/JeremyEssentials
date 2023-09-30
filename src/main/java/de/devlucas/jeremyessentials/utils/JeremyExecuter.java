@@ -8,12 +8,11 @@ import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public abstract class PermissionCheckingCommand implements CommandExecutor, TabExecutor {
+public abstract class JeremyExecuter implements CommandExecutor, TabExecutor {
 
-    protected PermissionCheckingCommand() {
+    protected JeremyExecuter() {
         CommandRegistry.register(this.getClass());
     }
 

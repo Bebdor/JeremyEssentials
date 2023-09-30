@@ -1,6 +1,6 @@
 package de.devlucas.jeremyessentials.commands.support;
 
-import de.devlucas.jeremyessentials.utils.PermissionCheckingCommand;
+import de.devlucas.jeremyessentials.utils.JeremyExecuter;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -9,7 +9,7 @@ import org.bukkit.command.Command;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SupportCommand extends PermissionCheckingCommand {
+public class SupportCommand extends JeremyExecuter {
     private SupportChatManager supportChatManager = new SupportChatManager();
 
     @Override

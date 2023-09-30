@@ -1,6 +1,6 @@
 package de.devlucas.jeremyessentials.commands;
 
-import de.devlucas.jeremyessentials.utils.PermissionCheckingCommand;
+import de.devlucas.jeremyessentials.utils.JeremyExecuter;
 import de.devlucas.jeremyessentials.utils.main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @main(command = "msg", permission="essentials.msg", description = "A command that allows you to chat privately with other players.", isConsoleCommand = false)
-public class MsgCommand extends PermissionCheckingCommand {
+public class MsgCommand extends JeremyExecuter {
 
     @Override
     public boolean executeCommand(Player player, Command command, String[] args) {

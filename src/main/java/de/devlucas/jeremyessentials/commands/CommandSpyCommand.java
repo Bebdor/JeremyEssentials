@@ -1,7 +1,7 @@
 package de.devlucas.jeremyessentials.commands;
 
 import de.devlucas.jeremyessentials.JeremyEssentials;
-import de.devlucas.jeremyessentials.utils.PermissionCheckingCommand;
+import de.devlucas.jeremyessentials.utils.JeremyExecuter;
 import de.devlucas.jeremyessentials.utils.main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -18,7 +18,7 @@ import java.util.HashSet;
 import java.util.List;
 
 @main(command = "cmdspy", permission = "essentials.cmdspy", description = "displays all chat-messages from a player", isConsoleCommand = false)
-public class CommandSpyCommand extends PermissionCheckingCommand implements Listener{
+public class CommandSpyCommand extends JeremyExecuter implements Listener{
 
     private final HashMap<String, HashSet<String>> cmdSpyMap = new HashMap<>();
 

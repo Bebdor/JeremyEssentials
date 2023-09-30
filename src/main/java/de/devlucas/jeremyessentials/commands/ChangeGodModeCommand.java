@@ -2,7 +2,7 @@ package de.devlucas.jeremyessentials.commands;
 
 import de.devlucas.jeremyessentials.JeremyEssentials;
 import de.devlucas.jeremyessentials.utils.main;
-import de.devlucas.jeremyessentials.utils.PermissionCheckingCommand;
+import de.devlucas.jeremyessentials.utils.JeremyExecuter;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -35,7 +35,7 @@ import java.util.stream.Collectors;
         description = "This command toggles god mode",
         isConsoleCommand = false
 )
-public class ChangeGodModeCommand extends PermissionCheckingCommand {
+public class ChangeGodModeCommand extends JeremyExecuter {
 
     @Override
     public boolean executeCommand(Player player, Command command, String[] args) {

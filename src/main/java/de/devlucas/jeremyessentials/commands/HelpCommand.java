@@ -1,7 +1,7 @@
 package de.devlucas.jeremyessentials.commands;
 
 import de.devlucas.jeremyessentials.utils.CommandRegistry;
-import de.devlucas.jeremyessentials.utils.PermissionCheckingCommand;
+import de.devlucas.jeremyessentials.utils.JeremyExecuter;
 import de.devlucas.jeremyessentials.utils.main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HelpCommand extends PermissionCheckingCommand {
+public class HelpCommand extends JeremyExecuter {
 
     /**
      * Lists all available accounts with author, description and the permissions
