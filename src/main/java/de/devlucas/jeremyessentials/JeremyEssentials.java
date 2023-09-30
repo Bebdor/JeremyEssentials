@@ -63,6 +63,8 @@ public final class JeremyEssentials extends JavaPlugin {
         Objects.requireNonNull(getCommand("cc")).setExecutor(new ChatClearCommand());
 
         Objects.requireNonNull(getCommand("globalmute")).setExecutor(new GlobalMuteCommand());
+
+        Objects.requireNonNull(getCommand("fly")).setExecutor(new FlyCommand());
     }
 
     @Override
