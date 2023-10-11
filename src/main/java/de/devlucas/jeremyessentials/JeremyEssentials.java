@@ -67,6 +67,8 @@ public final class JeremyEssentials extends JavaPlugin {
         Objects.requireNonNull(getCommand("fly")).setExecutor(new FlyCommand());
 
         Objects.requireNonNull(getCommand("tp")).setExecutor(new TeleportCommand());
+
+        Objects.requireNonNull(getCommand("feed")).setExecutor(new FeedCommand());
     }
 
     @Override
