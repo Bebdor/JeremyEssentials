@@ -13,4 +13,5 @@ public @interface main {
     String permission();
     String description();
     boolean isConsoleCommand();
+    boolean isAdminCommand();
 }

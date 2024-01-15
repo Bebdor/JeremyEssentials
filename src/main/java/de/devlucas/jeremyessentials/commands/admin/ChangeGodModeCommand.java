@@ -1,4 +1,4 @@
-package de.devlucas.jeremyessentials.commands;
+package de.devlucas.jeremyessentials.commands.admin;
 
 import de.devlucas.jeremyessentials.JeremyEssentials;
 import de.devlucas.jeremyessentials.utils.main;
@@ -33,7 +33,8 @@ import java.util.stream.Collectors;
         command = "/god",
         permission = "jeremyessentials.god",
         description = "This command toggles god mode",
-        isConsoleCommand = false
+        isConsoleCommand = false,
+        isAdminCommand = true
 )
 public class ChangeGodModeCommand extends JeremyExecuter {
 

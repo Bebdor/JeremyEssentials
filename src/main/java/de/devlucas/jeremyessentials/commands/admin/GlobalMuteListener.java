@@ -1,11 +1,11 @@
-package de.devlucas.jeremyessentials.commands;
+package de.devlucas.jeremyessentials.commands.admin;
 
 import de.devlucas.jeremyessentials.JeremyEssentials;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-import static de.devlucas.jeremyessentials.commands.GlobalMuteCommand.isChatMuted;
+import static de.devlucas.jeremyessentials.commands.admin.GlobalMuteCommand.isChatMuted;
 
 public class GlobalMuteListener implements Listener
 {

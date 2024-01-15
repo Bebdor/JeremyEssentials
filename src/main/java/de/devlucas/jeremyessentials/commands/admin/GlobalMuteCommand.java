@@ -1,4 +1,4 @@
-package de.devlucas.jeremyessentials.commands;
+package de.devlucas.jeremyessentials.commands.admin;
 
 import de.devlucas.jeremyessentials.JeremyEssentials;
 import de.devlucas.jeremyessentials.utils.JeremyExecuter;
@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-@main(command = "globalmute", description = "A command that forces the Player to be quiet.", permission = "jeremyessentials.globalmute", isConsoleCommand = false)
+@main(command = "globalmute", description = "A command that forces the Player to be quiet.", permission = "jeremyessentials.globalmute", isConsoleCommand = false, isAdminCommand = true)
 
 public class GlobalMuteCommand extends JeremyExecuter
 {

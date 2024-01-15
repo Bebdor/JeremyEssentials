@@ -1,4 +1,4 @@
-package de.devlucas.jeremyessentials.commands;
+package de.devlucas.jeremyessentials.commands.user;
 
 import de.devlucas.jeremyessentials.utils.CommandRegistry;
 import de.devlucas.jeremyessentials.utils.JeremyExecuter;
@@ -27,15 +27,16 @@ public class HelpCommand extends JeremyExecuter {
         CommandRegistry.getCommands().forEach(commandClass -> {
             main annotation = commandClass.getAnnotation(main.class);
             if (annotation != null) {
-                String message = "\n\n§6Command: §7" + annotation.command() +
-                        "\n§6Author: §7" + annotation.author() +
-                        "\n§6Description: §7" + annotation.description();
-                if (hasAdminRights) {
-                    message += "\n§6Required Permission: §7" + annotation.permission();
+                if (!annotation.isAdminCommand() || (annotation.isAdminCommand() && hasAdminRights)) {
+                    String message = "\n\n§6Command: §7" + annotation.command() +
+                            "\n§6Author: §7" + annotation.author() +
+                            "\n§6Description: §7" + annotation.description();
+                    if (hasAdminRights) {
+                        message += "\n§6Required Permission: §7" + annotation.permission();
+                    }
+                    assert player != null;
+                    player.sendMessage(message);
                 }
-                assert player != null;
-                player.sendMessage(message);
-
             }
         });
         return true;

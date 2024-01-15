@@ -1,5 +1,6 @@
-package de.devlucas.jeremyessentials.commands;
+package de.devlucas.jeremyessentials.commands.admin;
 
+import de.devlucas.jeremyessentials.JeremyEssentials;
 import de.devlucas.jeremyessentials.utils.JeremyExecuter;
 import de.devlucas.jeremyessentials.utils.main;
 import org.bukkit.Bukkit;
@@ -25,18 +26,21 @@ import java.util.List;
         command = "/cc",
         permission = "jeremyessentials.chatclear",
         description = "This command clears the chat",
-        isConsoleCommand = true
+        isConsoleCommand = true,
+        isAdminCommand = true
 )
 public class ChatClearCommand extends JeremyExecuter {
 
     @Override
     public boolean executeCommand(Player player, Command command, String[] args) {
 
-        for (int i = 0; i < 100; i++) {
-            Bukkit.broadcastMessage("");
+        for (int i = 0; i < 150; i++) {
+            for (Player p : Bukkit.getOnlinePlayers()) {
+                p.sendMessage("");
+            }
         }
 
-        Bukkit.broadcastMessage("Chat has been cleared by " + (player != null ? player.getName() : "console") + ".");
+        Bukkit.broadcastMessage(JeremyEssentials.pre + "Chat has been cleared by " + (player != null ? player.getName() : "console") + ".");
 
         return true;
     }

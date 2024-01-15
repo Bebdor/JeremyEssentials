@@ -1,19 +1,25 @@
 package de.devlucas.jeremyessentials;
 
-import de.devlucas.jeremyessentials.commands.*;
+import de.devlucas.jeremyessentials.commands.admin.*;
+import de.devlucas.jeremyessentials.commands.admin.commandspy.CommandSpyCommand;
+import de.devlucas.jeremyessentials.commands.admin.commandspy.CommandSpyListener;
+import de.devlucas.jeremyessentials.commands.user.*;
+import de.devlucas.jeremyessentials.commands.user.tpa.TpDenyCommand;
+import de.devlucas.jeremyessentials.commands.user.tpa.TpaCommand;
+import de.devlucas.jeremyessentials.commands.user.tpa.TpacceptCommand;
 import de.devlucas.jeremyessentials.commands.support.SupportCommand;
 import de.devlucas.jeremyessentials.events.CommandBlockerEvent;
 import de.devlucas.jeremyessentials.events.ConsoleExecuteEvent;
 import de.devlucas.jeremyessentials.events.CookieClickEvent;
 import org.bukkit.Bukkit;
-import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import java.util.Objects;
-import java.util.UUID;
 
 /**
  * The JeremyEssentials class is a plugin for a Minecraft server that provides essential functionalities.
@@ -27,26 +33,25 @@ public final class JeremyEssentials extends JavaPlugin {
     public static String mustBeAPlayer = pre + "You have to be a player to execute the command!";
     public static String noRights = pre + "You do not have permission to execute this command!";
 
+    public static HashMap<Player, Player> tpa = new HashMap<>();
+    public static final List<Player> commandspyList = new ArrayList<>();
+
     public static String playerNotFound(String playerName) {
         return pre + "Player §6" + playerName + "§7 not found";
     }
 
-    public static Map<UUID, Integer> clickCounts;
-
     @Override
     public void onEnable() {
-        loadClickCounts();
+
         PluginManager pluginManager = Bukkit.getPluginManager();
 
         pluginManager.registerEvents(new CookieClickEvent(), this);
         pluginManager.registerEvents(new ConsoleExecuteEvent(), this);
         pluginManager.registerEvents(new CommandBlockerEvent(), this);
-        pluginManager.registerEvents(new CommandSpyCommand(), this);
+        pluginManager.registerEvents(new CommandSpyListener(), this);
         pluginManager.registerEvents(new GlobalMuteListener(), this);
 
         Objects.requireNonNull(getCommand("gm")).setExecutor(new ChangeGamemodeCommand());
-
-        Objects.requireNonNull(getCommand("cookie")).setExecutor(new CookieClickerCommand());
 
         Objects.requireNonNull(getCommand("cmdspy")).setExecutor(new CommandSpyCommand());
 
@@ -69,31 +74,25 @@ public final class JeremyEssentials extends JavaPlugin {
         Objects.requireNonNull(getCommand("tp")).setExecutor(new TeleportCommand());
 
         Objects.requireNonNull(getCommand("feed")).setExecutor(new FeedCommand());
-    }
 
-    @Override
-    public void onDisable() {
-        saveClickCounts();
-    }
+        Objects.requireNonNull(getCommand("ec")).setExecutor(new EnderchestCommand());
 
-    private void loadClickCounts() {
-        clickCounts = new HashMap<>();
-        FileConfiguration config = getConfig();
-        if (config.contains("clickCounts")) {
-            for (String playerIdString : Objects.requireNonNull(config.getConfigurationSection("clickCounts")).getKeys(false)) {
-                UUID playerId = UUID.fromString(playerIdString);
-                int count = config.getInt("clickCounts." + playerIdString);
-                clickCounts.put(playerId, count);
-            }
-        }
-    }
+        Objects.requireNonNull(getCommand("wb")).setExecutor(new WorkbankCommand());
 
-    private void saveClickCounts() {
-        FileConfiguration config = getConfig();
-        for (Map.Entry<UUID, Integer> entry : clickCounts.entrySet()) {
-            config.set("clickCounts." + entry.getKey().toString(), entry.getValue());
-        }
-        saveConfig();
+        Objects.requireNonNull(getCommand("invsee")).setExecutor(new InvSeeCommand());
+
+        Objects.requireNonNull(getCommand("repair")).setExecutor(new RepairCommand());
+
+        Objects.requireNonNull(getCommand("whois")).setExecutor(new WhoIsCommand());
+
+        Objects.requireNonNull(getCommand("tpa")).setExecutor(new TpaCommand());
+
+        Objects.requireNonNull(getCommand("tpaccept")).setExecutor(new TpacceptCommand());
+
+        Objects.requireNonNull(getCommand("tpdeny")).setExecutor(new TpDenyCommand());
+
+        Objects.requireNonNull(getCommand("kick")).setExecutor(new KickCommand());
+
     }
 
 }

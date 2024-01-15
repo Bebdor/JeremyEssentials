@@ -1,4 +1,4 @@
-package de.devlucas.jeremyessentials.commands;
+package de.devlucas.jeremyessentials.commands.user;
 
 import de.devlucas.jeremyessentials.utils.JeremyExecuter;
 import de.devlucas.jeremyessentials.utils.main;
@@ -11,12 +11,19 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-@main(command = "msg", permission="essentials.msg", description = "A command that allows you to chat privately with other players.", isConsoleCommand = false)
+@main(
+        command = "msg",
+        permission="essentials.msg",
+        description = "A command that allows you to chat privately with other players.",
+        isConsoleCommand = false,
+        isAdminCommand = false
+)
+
 public class MessageCommand extends JeremyExecuter {
 
     @Override
     public boolean executeCommand(Player player, Command command, String[] args) {
-        String msg = "§8[§6Msg§8] §7";
+        String msg = "§8[§6MSG§8] §7";
         if(args.length > 1) {
             Player target = Bukkit.getPlayer(args[0]);
             if(target != null) {

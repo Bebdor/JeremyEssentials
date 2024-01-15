@@ -1,4 +1,4 @@
-package de.devlucas.jeremyessentials.commands;
+package de.devlucas.jeremyessentials.commands.user;
 
 import de.devlucas.jeremyessentials.JeremyEssentials;
 import de.devlucas.jeremyessentials.utils.JeremyExecuter;
@@ -8,14 +8,19 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.List;
-
-@main(command = "fly", permission = "essentials.fly", description = "A command that allows the player to fly", isConsoleCommand = false)
-public class FlyCommand extends JeremyExecuter {
+@main(
+        command = "heal",
+        description = "A command that allows the Player to heal himself or other players",
+        permission = "essentials.heal",
+        isConsoleCommand = false,
+        isAdminCommand = false
+)
+public class HealCommand extends JeremyExecuter {
     @Override
     public boolean executeCommand(Player player, Command command, String[] args) {
-
-        player.setAllowFlight(!player.getAllowFlight());
-        player.sendMessage(JeremyEssentials.pre + "Your fly mode has been " + ((player.getAllowFlight()) ? "§aactivated§7." : "§cdeactivated§7."));
+        player.setHealth(20);
+        player.setFoodLevel(20);
+        player.sendMessage(JeremyEssentials.pre + "You have been healed!");
 
         return false;
     }

@@ -1,4 +1,4 @@
-package de.devlucas.jeremyessentials.commands;
+package de.devlucas.jeremyessentials.commands.user;
 
 import de.devlucas.jeremyessentials.utils.JeremyExecuter;
 import java.util.List;
@@ -9,7 +9,13 @@ import org.bukkit.Bukkit;
 import de.devlucas.jeremyessentials.JeremyEssentials;
 import de.devlucas.jeremyessentials.utils.main;
 
-@main(command = "feed", permission = "essentials.feed", description = "A command that allows the player to set the FoodLevel to 20", isConsoleCommand = false)
+@main(
+        command = "feed",
+        permission = "essentials.feed",
+        description = "A command that allows the player to set the FoodLevel to 20",
+        isConsoleCommand = false,
+        isAdminCommand = false
+)
 
 public class FeedCommand extends JeremyExecuter
 {

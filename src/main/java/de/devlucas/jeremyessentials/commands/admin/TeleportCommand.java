@@ -1,4 +1,4 @@
-package de.devlucas.jeremyessentials.commands;
+package de.devlucas.jeremyessentials.commands.admin;
 
 import de.devlucas.jeremyessentials.JeremyEssentials;
 import de.devlucas.jeremyessentials.utils.JeremyExecuter;
@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@main(command = "tp", permission = "essentials.tp", description = "A command that allows the player to teleport to another player or to coords", isConsoleCommand = false)
+@main(command = "tp", permission = "essentials.tp", description = "A command that allows the player to teleport to another player or to coords", isConsoleCommand = false, isAdminCommand = true)
 public class TeleportCommand extends JeremyExecuter {
     @Override
     public boolean executeCommand(Player player, Command command, String[] args) {
@@ -28,7 +28,7 @@ public class TeleportCommand extends JeremyExecuter {
             }
             else
             {
-                player.sendMessage(JeremyEssentials.playerNotFound(String.valueOf(target)));
+                player.sendMessage(JeremyEssentials.playerNotFound(args[0]));
             }
         }
         else if (args.length == 3)
