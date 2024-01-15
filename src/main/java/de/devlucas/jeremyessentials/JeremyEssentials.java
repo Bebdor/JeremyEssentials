@@ -10,7 +10,6 @@ import de.devlucas.jeremyessentials.commands.user.tpa.TpacceptCommand;
 import de.devlucas.jeremyessentials.commands.support.SupportCommand;
 import de.devlucas.jeremyessentials.events.CommandBlockerEvent;
 import de.devlucas.jeremyessentials.events.ConsoleExecuteEvent;
-import de.devlucas.jeremyessentials.events.CookieClickEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
@@ -45,7 +44,6 @@ public final class JeremyEssentials extends JavaPlugin {
 
         PluginManager pluginManager = Bukkit.getPluginManager();
 
-        pluginManager.registerEvents(new CookieClickEvent(), this);
         pluginManager.registerEvents(new ConsoleExecuteEvent(), this);
         pluginManager.registerEvents(new CommandBlockerEvent(), this);
         pluginManager.registerEvents(new CommandSpyListener(), this);
