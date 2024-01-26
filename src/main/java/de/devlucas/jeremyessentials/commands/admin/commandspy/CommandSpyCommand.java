@@ -2,21 +2,16 @@ package de.devlucas.jeremyessentials.commands.admin.commandspy;
 
 import de.devlucas.jeremyessentials.JeremyEssentials;
 import de.devlucas.jeremyessentials.utils.JeremyExecuter;
-import de.devlucas.jeremyessentials.utils.main;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.command.Command;
+import de.devlucas.jeremyessentials.utils.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
-@main(
+@Command(
         command = "cmdspy",
         permission = "essentials.cmdspy",
         description = "displays all chat-messages from a player",
@@ -28,7 +23,7 @@ public class CommandSpyCommand extends JeremyExecuter implements Listener{
 
 
     @Override
-    public boolean executeCommand(Player player, Command command, String @NotNull [] args) {
+    public boolean executeCommand(Player player, org.bukkit.command.Command command, String @NotNull [] args) {
 
         if (JeremyEssentials.commandspyList.contains(player))
         {
@@ -46,9 +41,8 @@ public class CommandSpyCommand extends JeremyExecuter implements Listener{
     }
 
     @Override
-    public List<String> suggestTabCompletion(CommandSender sender, Command command, String alias, String @NotNull [] args) {
-        List<String> list = new ArrayList<>();
+    public List<String> suggestTabCompletion(CommandSender sender, org.bukkit.command.Command command, String alias, String @NotNull [] args) {
 
-        return list;
+        return new ArrayList<>();
     }
 }

@@ -2,13 +2,12 @@ package de.devlucas.jeremyessentials.commands.user;
 
 import de.devlucas.jeremyessentials.JeremyEssentials;
 import de.devlucas.jeremyessentials.utils.JeremyExecuter;
-import de.devlucas.jeremyessentials.utils.main;
-import org.bukkit.command.Command;
+import de.devlucas.jeremyessentials.utils.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.List;
-@main(
+@Command(
         command = "heal",
         description = "A command that allows the Player to heal himself or other players",
         permission = "essentials.heal",
@@ -17,7 +16,7 @@ import java.util.List;
 )
 public class HealCommand extends JeremyExecuter {
     @Override
-    public boolean executeCommand(Player player, Command command, String[] args) {
+    public boolean executeCommand(Player player, org.bukkit.command.Command command, String[] args) {
         player.setHealth(20);
         player.setFoodLevel(20);
         player.sendMessage(JeremyEssentials.pre + "You have been healed!");
@@ -26,7 +25,7 @@ public class HealCommand extends JeremyExecuter {
     }
 
     @Override
-    public List<String> suggestTabCompletion(CommandSender sender, Command command, String alias, String[] args) {
+    public List<String> suggestTabCompletion(CommandSender sender, org.bukkit.command.Command command, String alias, String[] args) {
         return null;
     }
 }

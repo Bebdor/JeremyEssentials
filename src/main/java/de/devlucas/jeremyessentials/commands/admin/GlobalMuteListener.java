@@ -9,7 +9,7 @@ import static de.devlucas.jeremyessentials.commands.admin.GlobalMuteCommand.isCh
 
 public class GlobalMuteListener implements Listener
 {
-    @EventHandler public void onAsyncPlayerChatEvent(AsyncPlayerChatEvent event)
+    @EventHandler @Deprecated public void onAsyncPlayerChatEvent(AsyncPlayerChatEvent event)
     {
         if (isChatMuted && !event.getPlayer().hasPermission("essentials.chat"))
         {

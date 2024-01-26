@@ -2,19 +2,18 @@ package de.devlucas.jeremyessentials.commands.admin;
 
 import de.devlucas.jeremyessentials.JeremyEssentials;
 import de.devlucas.jeremyessentials.utils.JeremyExecuter;
-import de.devlucas.jeremyessentials.utils.main;
+import de.devlucas.jeremyessentials.utils.Command;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.List;
 
-@main(command = "invsee", permission = "essentials.invsee", description = "A command that allow the player to open a Inventory of other players", isConsoleCommand = false, isAdminCommand = true)
+@Command(command = "invsee", permission = "essentials.invsee", description = "A command that allow the player to open a Inventory of other players", isConsoleCommand = false, isAdminCommand = true)
 
 public class InvSeeCommand extends JeremyExecuter {
     @Override
-    public boolean executeCommand(Player player, Command command, String[] args) {
+    public boolean executeCommand(Player player, org.bukkit.command.Command command, String[] args) {
 
         Player target = Bukkit.getPlayer(args[0]);
         if (target == null)
@@ -37,7 +36,7 @@ public class InvSeeCommand extends JeremyExecuter {
     }
 
     @Override
-    public List<String> suggestTabCompletion(CommandSender sender, Command command, String alias, String[] args) {
+    public List<String> suggestTabCompletion(CommandSender sender, org.bukkit.command.Command command, String alias, String[] args) {
         return null;
     }
 }

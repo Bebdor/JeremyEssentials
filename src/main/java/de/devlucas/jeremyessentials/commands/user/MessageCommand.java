@@ -1,17 +1,17 @@
 package de.devlucas.jeremyessentials.commands.user;
 
 import de.devlucas.jeremyessentials.utils.JeremyExecuter;
-import de.devlucas.jeremyessentials.utils.main;
+import de.devlucas.jeremyessentials.utils.Command;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@main(
+@Command(
         command = "msg",
         permission="essentials.msg",
         description = "A command that allows you to chat privately with other players.",
@@ -22,13 +22,14 @@ import java.util.List;
 public class MessageCommand extends JeremyExecuter {
 
     @Override
-    public boolean executeCommand(Player player, Command command, String[] args) {
+    @Deprecated
+    public boolean executeCommand(Player player, org.bukkit.command.Command command, String @NotNull [] args) {
         String msg = "§8[§6MSG§8] §7";
         if(args.length > 1) {
             Player target = Bukkit.getPlayer(args[0]);
             if(target != null) {
                 if(player.equals(target)) {
-                    player.sendMessage(msg + "§bTrau dich doch auch andere anzusprechen");
+                    player.sendMessage(msg + "§bHave the courage to speak to others");
                     return true;
                 }
                 StringBuilder message = new StringBuilder();
@@ -36,8 +37,8 @@ public class MessageCommand extends JeremyExecuter {
                     message.append(args[i]).append(" ");
                 }
 
-                target.sendMessage(msg + "Message from " + ChatColor.GOLD + player.getName() + ChatColor.GRAY + ": " + message.toString());
-                player.sendMessage(msg + "Message sent to " + ChatColor.GOLD + target.getName() + ChatColor.GRAY + ": " + message.toString());
+                target.sendMessage(msg + "Message from " + ChatColor.GOLD + player.getName() + ChatColor.GRAY + ": " + message);
+                player.sendMessage(msg + "Message sent to " + ChatColor.GOLD + target.getName() + ChatColor.GRAY + ": " + message);
             } else {
                 player.sendMessage(msg + "§cPlayer not found!");
             }
@@ -48,7 +49,7 @@ public class MessageCommand extends JeremyExecuter {
     }
 
     @Override
-    public List<String> suggestTabCompletion(CommandSender sender, Command command, String alias, String[] args) {
+    public List<String> suggestTabCompletion(CommandSender sender, org.bukkit.command.Command command, String alias, String[] args) {
         List<String> suggestions = new ArrayList<>();
         if(args.length == 1) {
             for(Player player : Bukkit.getOnlinePlayers()) {

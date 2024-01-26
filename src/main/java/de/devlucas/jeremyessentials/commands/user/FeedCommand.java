@@ -3,13 +3,13 @@ package de.devlucas.jeremyessentials.commands.user;
 import de.devlucas.jeremyessentials.utils.JeremyExecuter;
 import java.util.List;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
 import org.bukkit.Bukkit;
 import de.devlucas.jeremyessentials.JeremyEssentials;
-import de.devlucas.jeremyessentials.utils.main;
+import de.devlucas.jeremyessentials.utils.Command;
+import org.jetbrains.annotations.NotNull;
 
-@main(
+@Command(
         command = "feed",
         permission = "essentials.feed",
         description = "A command that allows the player to set the FoodLevel to 20",
@@ -19,7 +19,7 @@ import de.devlucas.jeremyessentials.utils.main;
 
 public class FeedCommand extends JeremyExecuter
 {
-    @Override public boolean executeCommand(Player player, Command command, String[] args)
+    @Override public boolean executeCommand(Player player, org.bukkit.command.Command command, String @NotNull [] args)
     {
         if (args.length == 0)
         {
@@ -41,7 +41,7 @@ public class FeedCommand extends JeremyExecuter
         return false;
     }
 
-    @Override public List<String> suggestTabCompletion(CommandSender sender, Command command, String alias, String[] args)
+    @Override public List<String> suggestTabCompletion(CommandSender sender, org.bukkit.command.Command command, String alias, String[] args)
     {
         return null;
     }

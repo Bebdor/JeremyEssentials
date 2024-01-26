@@ -1,7 +1,6 @@
 package de.devlucas.jeremyessentials.utils;
 
 import de.devlucas.jeremyessentials.JeremyEssentials;
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -17,13 +16,13 @@ public abstract class JeremyExecuter implements CommandExecutor, TabExecutor {
     }
 
     @Override
-    public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
-        Boolean isConsoleCommand;
+    public boolean onCommand(@NotNull CommandSender commandSender, @NotNull org.bukkit.command.Command command, @NotNull String s, @NotNull String[] args) {
+        boolean isConsoleCommand;
         try {
-            main annotation = this.getClass().getAnnotation(main.class);
+            Command annotation = this.getClass().getAnnotation(Command.class);
             if (annotation != null) {
                 isConsoleCommand = annotation.isConsoleCommand();
-                if (isConsoleCommand != null && !isConsoleCommand && !(commandSender instanceof Player)) {
+                if (!isConsoleCommand && !(commandSender instanceof Player)) {
                     commandSender.sendMessage(JeremyEssentials.mustBeAPlayer);
                     return false;
                 }
@@ -34,8 +33,8 @@ public abstract class JeremyExecuter implements CommandExecutor, TabExecutor {
                     return false;
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
             return false;
         }
 
@@ -46,12 +45,12 @@ public abstract class JeremyExecuter implements CommandExecutor, TabExecutor {
         }
     }
     @Override
-    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, @NotNull String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull org.bukkit.command.Command command, @NotNull String alias, @NotNull String[] args) {
         return suggestTabCompletion(sender, command, alias, args);
     }
 
 
-    public abstract boolean executeCommand(Player player, Command command, String[] args);
+    public abstract boolean executeCommand(Player player, org.bukkit.command.Command command, String[] args);
 
-    public abstract List<String> suggestTabCompletion(CommandSender sender, Command command, String alias, String[] args);
+    public abstract List<String> suggestTabCompletion(CommandSender sender, org.bukkit.command.Command command, String alias, String[] args);
 }

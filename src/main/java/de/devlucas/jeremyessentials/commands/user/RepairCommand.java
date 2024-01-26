@@ -2,18 +2,18 @@ package de.devlucas.jeremyessentials.commands.user;
 
 import de.devlucas.jeremyessentials.JeremyEssentials;
 import de.devlucas.jeremyessentials.utils.JeremyExecuter;
-import de.devlucas.jeremyessentials.utils.main;
+import de.devlucas.jeremyessentials.utils.Command;
 import org.bukkit.Material;
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-@main(
+@Command(
         command = "repair",
         permission = "essentials.repair",
         description = "Repair",
@@ -23,10 +23,11 @@ import java.util.UUID;
 
 public class RepairCommand extends JeremyExecuter {
 
-    private HashMap<UUID, Long> lastUsed = new HashMap<>();
+    private final HashMap<UUID, Long> lastUsed = new HashMap<>();
 
     @Override
-    public boolean executeCommand(Player player, Command command, String[] args) {
+    @Deprecated
+    public boolean executeCommand(@NotNull Player player, org.bukkit.command.Command command, String[] args) {
 
         if (lastUsed.containsKey(player.getUniqueId()) &! player.hasPermission("essentials.admin"))
         {
@@ -55,7 +56,7 @@ public class RepairCommand extends JeremyExecuter {
     }
 
     @Override
-    public List<String> suggestTabCompletion(CommandSender sender, Command command, String alias, String[] args) {
+    public List<String> suggestTabCompletion(CommandSender sender, org.bukkit.command.Command command, String alias, String[] args) {
         return null;
     }
 }

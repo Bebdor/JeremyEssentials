@@ -2,15 +2,14 @@ package de.devlucas.jeremyessentials.commands.user.tpa;
 
 import de.devlucas.jeremyessentials.JeremyEssentials;
 import de.devlucas.jeremyessentials.utils.JeremyExecuter;
-import de.devlucas.jeremyessentials.utils.main;
-import org.bukkit.command.Command;
+import de.devlucas.jeremyessentials.utils.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.List;
 
 
-@main(
+@Command(
         command = "tpaccept",
         permission = "essentials.tpa",
         description = "Accept a TPA request",
@@ -20,7 +19,7 @@ import java.util.List;
 
 public class TpacceptCommand extends JeremyExecuter {
     @Override
-    public boolean executeCommand(Player player, Command command, String[] args) {
+    public boolean executeCommand(Player player, org.bukkit.command.Command command, String[] args) {
 
         if (args.length == 0)
         {
@@ -45,7 +44,7 @@ public class TpacceptCommand extends JeremyExecuter {
     }
 
     @Override
-    public List<String> suggestTabCompletion(CommandSender sender, Command command, String alias, String[] args) {
+    public List<String> suggestTabCompletion(CommandSender sender, org.bukkit.command.Command command, String alias, String[] args) {
         return null;
     }
 }

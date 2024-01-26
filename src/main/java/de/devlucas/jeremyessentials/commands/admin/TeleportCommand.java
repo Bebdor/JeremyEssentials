@@ -2,10 +2,9 @@ package de.devlucas.jeremyessentials.commands.admin;
 
 import de.devlucas.jeremyessentials.JeremyEssentials;
 import de.devlucas.jeremyessentials.utils.JeremyExecuter;
-import de.devlucas.jeremyessentials.utils.main;
+import de.devlucas.jeremyessentials.utils.Command;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -13,10 +12,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@main(command = "tp", permission = "essentials.tp", description = "A command that allows the player to teleport to another player or to coords", isConsoleCommand = false, isAdminCommand = true)
+@Command(command = "tp", permission = "essentials.tp", description = "A command that allows the player to teleport to another player or to coords", isConsoleCommand = false, isAdminCommand = true)
 public class TeleportCommand extends JeremyExecuter {
     @Override
-    public boolean executeCommand(Player player, Command command, String[] args) {
+    public boolean executeCommand(Player player, org.bukkit.command.Command command, String[] args) {
 
         if (args.length == 1)
         {
@@ -66,7 +65,7 @@ public class TeleportCommand extends JeremyExecuter {
     }
 
     @Override
-    public List<String> suggestTabCompletion(CommandSender sender, Command command, String alias, String[] args) {
+    public List<String> suggestTabCompletion(CommandSender sender, org.bukkit.command.Command command, String alias, String[] args) {
         if (args.length == 1) {
             return Bukkit.getServer().getOnlinePlayers().stream()
                     .map(Player::getName)

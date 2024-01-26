@@ -2,9 +2,8 @@ package de.devlucas.jeremyessentials.commands.admin;
 
 import de.devlucas.jeremyessentials.JeremyEssentials;
 import de.devlucas.jeremyessentials.utils.JeremyExecuter;
-import de.devlucas.jeremyessentials.utils.main;
+import de.devlucas.jeremyessentials.utils.Command;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -22,7 +21,7 @@ import java.util.List;
  * <p>
  * The suggestTabCompletion method returns an empty list, as there are no tab completions provided for this command.
  */
-@main(
+@Command(
         command = "/cc",
         permission = "jeremyessentials.chatclear",
         description = "This command clears the chat",
@@ -32,7 +31,8 @@ import java.util.List;
 public class ChatClearCommand extends JeremyExecuter {
 
     @Override
-    public boolean executeCommand(Player player, Command command, String[] args) {
+    @Deprecated
+    public boolean executeCommand(Player player, org.bukkit.command.Command command, String[] args) {
 
         for (int i = 0; i < 150; i++) {
             for (Player p : Bukkit.getOnlinePlayers()) {
@@ -45,7 +45,7 @@ public class ChatClearCommand extends JeremyExecuter {
         return true;
     }
 
-    @Override public List<String> suggestTabCompletion(CommandSender sender, Command command, String alias, String[] args)
+    @Override public List<String> suggestTabCompletion(CommandSender sender, org.bukkit.command.Command command, String alias, String[] args)
     {
         return Collections.emptyList();
     }

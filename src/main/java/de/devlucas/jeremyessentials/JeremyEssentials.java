@@ -75,7 +75,7 @@ public final class JeremyEssentials extends JavaPlugin {
 
         Objects.requireNonNull(getCommand("ec")).setExecutor(new EnderchestCommand());
 
-        Objects.requireNonNull(getCommand("wb")).setExecutor(new WorkbankCommand());
+        Objects.requireNonNull(getCommand("wb")).setExecutor(new WorkbenchCommand());
 
         Objects.requireNonNull(getCommand("invsee")).setExecutor(new InvSeeCommand());
 
@@ -90,6 +90,8 @@ public final class JeremyEssentials extends JavaPlugin {
         Objects.requireNonNull(getCommand("tpdeny")).setExecutor(new TpDenyCommand());
 
         Objects.requireNonNull(getCommand("kick")).setExecutor(new KickCommand());
+
+        Objects.requireNonNull(getCommand("head")).setExecutor(new HeadCommand());
 
     }
 

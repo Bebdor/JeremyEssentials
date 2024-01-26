@@ -2,10 +2,9 @@ package de.devlucas.jeremyessentials.commands.admin;
 
 import de.devlucas.jeremyessentials.JeremyEssentials;
 import de.devlucas.jeremyessentials.utils.JeremyExecuter;
-import de.devlucas.jeremyessentials.utils.main;
+import de.devlucas.jeremyessentials.utils.Command;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -17,7 +16,7 @@ import java.util.List;
 /**
  *  A command class for changing the player's gamemode.
  */
-@main(
+@Command(
         command = "gamemode",
         permission = "essentials.gamemode",
         description = "Changes the gamemode",
@@ -27,7 +26,7 @@ import java.util.List;
 
 public class ChangeGamemodeCommand extends JeremyExecuter {
     @Override
-    public boolean executeCommand(@NotNull Player player, @NotNull Command command, @NotNull String[] args) {
+    public boolean executeCommand(@NotNull Player player, @NotNull org.bukkit.command.Command command, @NotNull String[] args) {
 
         if (args.length == 0) {
             player.sendMessage(JeremyEssentials.pre + "Please specify a game mode.");
@@ -37,7 +36,7 @@ public class ChangeGamemodeCommand extends JeremyExecuter {
         if (args.length == 1)
         {
             String arg = args[0];
-            GameMode mode = null;
+            GameMode mode;
             switch (arg) {
                 case "0":
                 case "s":
@@ -72,7 +71,7 @@ public class ChangeGamemodeCommand extends JeremyExecuter {
         {
             Player target = Bukkit.getPlayer(args[1]);
             String arg = args[0];
-            GameMode mode = null;
+            GameMode mode;
             switch (arg) {
                 case "0":
                 case "s":
@@ -108,7 +107,7 @@ public class ChangeGamemodeCommand extends JeremyExecuter {
     }
 
     @Override
-    public List<String> suggestTabCompletion(CommandSender sender, Command command, String alias, String[] args) {
+    public List<String> suggestTabCompletion(CommandSender sender, org.bukkit.command.Command command, String alias, String[] args) {
         List<String> list = new ArrayList<>();
 
         if(args.length == 1) {

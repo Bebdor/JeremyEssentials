@@ -7,7 +7,8 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface main {
+public @interface Command
+{
     String author() default "DevLucas";
     String command();
     String permission();

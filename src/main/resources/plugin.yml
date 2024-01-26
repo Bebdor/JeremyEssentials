@@ -8,24 +8,42 @@ commands:
   cmdspy:
     aliases: [commandspy]
   help:
+    description: Displays all commands
   heal:
+    description: Heals yourself or another player
   msg:
+    description: A command that allows you to message private with other players
   support:
+    description: If you need help, you can use this command to contact a supporter.
   godmode:
+    description: Makes you immortal
   cc:
     aliases: [chatclear]
   globalmute:
     aliases: [gb]
   fly:
+    description: This command allows you to fly without being in gamemode creative or spectator.
   tp:
     aliases: [teleport]
   feed:
+    description: You can feed yourself or other players.
   ec:
+    description: Directly opens your or another enderchest
   wb:
+    description: Directly opens a workbench.
   invsee:
+    description: This command allows you to see the inventory of other players.
   repair:
+    description: You can use this command to repair your tool. If you are not an admin, you have a delay between using this command.
   whois:
+    description: Displays the most information about a player
   tpa:
+    description: If you want to teleport to other players, just use this command. The disadvantage is that the player to whom you have sent a tpa request must accept it.
   tpaccept:
+    description: Accept a tpa-request.
   tpdeny:
+    description: Deny a tpa-request.
   kick:
+    description: Kicks other players from game.
+  head:
+    description: Gives you a head of a Minecraft player skin

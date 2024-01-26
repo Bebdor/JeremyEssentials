@@ -11,6 +11,7 @@ import java.util.List;
 
 public class KickCommand extends JeremyExecuter {
     @Override
+    @Deprecated
     public boolean executeCommand(Player player, Command command, String[] args) {
 
         if (args.length == 1)
@@ -35,9 +36,9 @@ public class KickCommand extends JeremyExecuter {
 
         String header = "§7------- " + JeremyEssentials.pre + "-------";
         String body = "You have been kicked from this server.\nReason: " + message;
-        String footer = header;
 
-        String kickMessage = header+body+footer;
+
+        String kickMessage = header+body+header;
 
         target.kickPlayer(kickMessage);
 

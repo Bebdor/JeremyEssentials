@@ -2,8 +2,7 @@ package de.devlucas.jeremyessentials.commands.user;
 
 import de.devlucas.jeremyessentials.utils.CommandRegistry;
 import de.devlucas.jeremyessentials.utils.JeremyExecuter;
-import de.devlucas.jeremyessentials.utils.main;
-import org.bukkit.command.Command;
+import de.devlucas.jeremyessentials.utils.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -21,13 +20,13 @@ public class HelpCommand extends JeremyExecuter {
      * @return true if the command was executed successfully, false otherwise
      */
     @Override
-    public boolean executeCommand(Player player, Command command, String[] args) {
+    public boolean executeCommand(Player player, org.bukkit.command.Command command, String[] args) {
         boolean hasAdminRights = player != null && player.hasPermission("essentials.admin");
 
         CommandRegistry.getCommands().forEach(commandClass -> {
-            main annotation = commandClass.getAnnotation(main.class);
+            Command annotation = commandClass.getAnnotation(Command.class);
             if (annotation != null) {
-                if (!annotation.isAdminCommand() || (annotation.isAdminCommand() && hasAdminRights)) {
+                if (!annotation.isAdminCommand() || hasAdminRights) {
                     String message = "\n\n§6Command: §7" + annotation.command() +
                             "\n§6Author: §7" + annotation.author() +
                             "\n§6Description: §7" + annotation.description();
@@ -49,7 +48,7 @@ public class HelpCommand extends JeremyExecuter {
      */
 
     @Override
-    public List<String> suggestTabCompletion(CommandSender sender, Command command, String alias, String[] args) {
+    public List<String> suggestTabCompletion(CommandSender sender, org.bukkit.command.Command command, String alias, String[] args) {
         return new ArrayList<>();
     }
 }
